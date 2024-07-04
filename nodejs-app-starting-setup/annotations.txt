@@ -1,0 +1,18 @@
+Some important annotations of what I learned during this lecture
+
+docker run -p localPort:containerPort <image-id> 
+
+passing the publish flag into the run instruction gives access to the container from the localhost
+
+another thing:
+docker build .  yes, with a dot to tell docker engine where I want my image built, it will build a docker image which is read only
+
+docker stop <name> will just stop a container
+
+IMAGES LAYERS
+
+Images are built from a layered architecture. It means that it only builds something up if something has changed. 
+But, docker engine can't quite determine what has changed in an image. So it adopts a policy: from the changing point onwards it will rebuild everything again.
+As in, if docker engine detects that on docker file instruction COPY . /app something has changed, it will rebuild every instruction after that one. 
+So things that take time like rebuilding dependencies can be optimized by a separation of concerns: first copying package.json into the working directory then running npm install and 
+afterwards copying the rest of the project to inside the working dir
