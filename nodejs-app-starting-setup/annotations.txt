@@ -16,3 +16,10 @@ But, docker engine can't quite determine what has changed in an image. So it ado
 As in, if docker engine detects that on docker file instruction COPY . /app something has changed, it will rebuild every instruction after that one. 
 So things that take time like rebuilding dependencies can be optimized by a separation of concerns: first copying package.json into the working directory then running npm install and 
 afterwards copying the rest of the project to inside the working dir
+
+
+ACCESS TO THE TERMINAL INSIDE THE CONTAINER 
+
+if you do something like docker -it ubuntu:latest bash, you'll run a ubuntu image in interactive mode opening a bash terminal along with it
+
+
