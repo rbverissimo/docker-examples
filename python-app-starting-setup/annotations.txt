@@ -2,3 +2,37 @@ docker start -a -i
 This command starts the container, once used the docker run -it command, in attached mode but also in the interactive mode. 
 That means that we, as users, can interact with the terminal of the container for STDIN/STDOUT. 
 
+docker rm <name-container> removes a container if stopped (docker stop <name-container> to stop)
+
+docker run prune removes all the containers at once
+
+docker images lists all the images 
+docker rmi <image-id> removes the image selected by the ID. But, you can only remove images if they are not being used by any container (stopped also) anymore.
+
+docker image prune removes all the images that can be removed
+
+RECAP:
+
+docker run -p 3000:80 -d -rm <ID>
+
+The command above runs a container biding the 3000 port of the host to the 80 port of the container and it does so in detach mode,
+but it also removes the container after it gets stopped. The ID just identifies which container will be ran. 
+
+docker clear cleans the docker terminal
+
+docker image inspect <ID> inspects the layers inside of an image selected by the ID 
+
+
+COPYING FILES IN AND OUT A CONTAINER
+
+The basic command stands for docker cp <src> <destination>
+What does it mean? It means that I can point source to inside of the container and extract it to outside and vice-versa
+
+NAMING IMAGES AND containers
+
+docker --name can be passed along with a docker run command, just like:
+
+docker run -d --name myApp <ID>   this line just runs the container in detached mode assigning a nome to it
+docker stop myApp  and once assigned I can start or stop it by its name
+
+
