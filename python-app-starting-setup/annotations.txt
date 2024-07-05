@@ -1,0 +1,4 @@
+docker start -a -i 
+This command starts the container, once used the docker run -it command, in attached mode but also in the interactive mode. 
+That means that we, as users, can interact with the terminal of the container for STDIN/STDOUT. 
+

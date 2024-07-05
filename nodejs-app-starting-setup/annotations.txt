@@ -23,3 +23,13 @@ ACCESS TO THE TERMINAL INSIDE THE CONTAINER
 if you do something like docker -it ubuntu:latest bash, you'll run a ubuntu image in interactive mode opening a bash terminal along with it
 
 
+MORE ON LOGS AND DETACH/ATTACH
+
+docker ps -a  lists all the docker containers (even ones that are not running). To list just the running containers docker ps should suffice. 
+
+docker attach <name-container> reattaches the terminal to the container. By default, docker run should start a container attached. But, docker start should start it detached.
+The main differences lies on logging messages and other relevant informations to the container. On attached mode, those infos are visible in the attached terminal.
+Another way to have access logs is using the docker logs command.
+
+docker logs <name-container> 
+
