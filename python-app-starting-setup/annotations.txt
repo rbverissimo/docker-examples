@@ -28,11 +28,21 @@ COPYING FILES IN AND OUT A CONTAINER
 The basic command stands for docker cp <src> <destination>
 What does it mean? It means that I can point source to inside of the container and extract it to outside and vice-versa
 
-NAMING IMAGES AND containers
+NAMING IMAGES AND CONTAINERS
 
 docker --name can be passed along with a docker run command, just like:
 
-docker run -d --name myApp <ID>   this line just runs the container in detached mode assigning a nome to it
+docker run -d --name myApp <ID-image>   this line just runs the container in detached mode assigning a nome to it
 docker stop myApp  and once assigned I can start or stop it by its name
+
+IMAGE TAGGING
+
+tags are built by the name:tag, much like a dictionary.
+in order to name our images, we thus do docker build -t name:tag . 
+as this builds an image of name and tag in the directory the terminal is standing on 
+
+Remember you build and run images
+the dockerfile helps create the image
+the container is a container for the image
 
 
