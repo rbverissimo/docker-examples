@@ -10,6 +10,7 @@ COPY . /app
 
 EXPOSE 80
 
-VOLUME [ "/app/feedback" ]
+#VOLUME [ "/app/feedback" ]
+#VOLUME [ "/app/node_modules" ] same as passing -v /app/node_modules in the docker run
 
 CMD [ "node", "server.js" ]

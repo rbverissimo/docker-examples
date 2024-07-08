@@ -15,7 +15,9 @@ It's like a path stream on which the container may be aware of files in the host
 There are two kinds of volumes:
 Unnamed: they are non-persistent. They declared in the dockerfile via
 
-VOLUME ['path\to\container\dir']
+VOLUME ['path\to\container\dir']. Everytime you run a container another unnamed volume is created and attached to it.
+This behaviour doesn't happen if you just start/stop containers. 
+See the "important annotation from the author"
 
 Named: they are persistent. They declare IN THE RUN command
 
@@ -24,3 +26,18 @@ docker run -d -p 3000:80 --rm --name feedback-app -v feedback:app/feedback feedb
 using -v passing the host-dir:container/dir with it
 
 It is important to remember that every time a container rans, we must specify the named volume path for it to be aware of the volume
+
+
+important annotation from the author
+
+We saw, that anonymous volumes are removed automatically, when a container is removed.
+
+This happens when you start / run a container with the --rm option.
+
+If you start a container without that option, the anonymous volume would NOT be removed, even if you remove the container (with docker rm ...).
+
+Still, if you then re-create and re-run the container (i.e. you run docker run ... again), a new anonymous volume will be created.
+So even though the anonymous volume wasn't removed automatically, i
+t'll also not be helpful because a different anonymous volume is attached the next time the container starts (i.e. you removed the old container and run a new one).
+
+Now you just start piling up a bunch of unused anonymous volumes - you can clear them via docker volume rm VOL_NAME or docker volume prune.

@@ -1,0 +1,27 @@
+Bind Mounts:
+
+Bind mounts works much like named volumes. They are parts of the host machine accessible by the container. 
+Its declaration also happens in the docker run command as in
+
+docker run -d -p 3000:80 --name app-name -v <relative\host\path>:<container\path> -v "<absolute\host\project\path>:<container\project\path" name-image:tag
+
+Bind Mounts - Shortcuts
+Just a quick note: If you don't always want to copy and use the full path, you can use these shortcuts:
+
+macOS / Linux: -v $(pwd):/app
+
+Windows: -v "%cd%":/app
+
+I don't use them in the lectures, since I want to show an approach that works for everyone 
+(and I don't want to switch between both all the time), 
+but you can use these shortcuts depending on which OS you are working on to save some typing.
+
+
+Turns out that bind mouting the whole project into the \app directory on the container overode the node_modules.
+That means that the node application can't really run without its dependencies, right?
+In order to prevent that, we can isolate the node_modules and save it from being overriden by adding an unnamed volume to the container using a path to the node_modules
+inside of the container itself see:
+
+docker run -d -p 3000:80 --name app-name -v <relative\host\path>:<container\path> -v "<absolute\host\project\path>:<container\project\path" -v <\path-to\node_modules\> name-image:tag
+
+the -v <\path-to\node_modules\> behaves the same as writing VOLUME["path-to\node_modules\"] in the image
