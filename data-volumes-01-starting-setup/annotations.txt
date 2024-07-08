@@ -1,0 +1,26 @@
+Each container has its own filesystem with a read-write stream in which we can save files inside of the container.
+Matter of fact, the image is a file so to say inside the container. 
+This means that we can instruct the dockerfile to create files and directories at our leisure, much like in a real machine. 
+We the image may interact with these files such as in-file databases and other files. 
+
+Now, here's the thing. Each container has its own filesystem, much like a real machine. So if we create a container and just start/stop it, fine, our files will be there.
+BUT, if we remove a container, all the files are gone. And just another dockerfile that will build a new image within a new container will only create new files. 
+It is an interesting concept, but overall that's where volumes come into the play.
+
+docker volumes is the command that manages all the volumes data
+
+Volumes are a way to connect the host machine with the container read-write filesystem. 
+It's like a path stream on which the container may be aware of files in the host and vice-versa. 
+
+There are two kinds of volumes:
+Unnamed: they are non-persistent. They declared in the dockerfile via
+
+VOLUME ['path\to\container\dir']
+
+Named: they are persistent. They declare IN THE RUN command
+
+docker run -d -p 3000:80 --rm --name feedback-app -v feedback:app/feedback feedback-node:volumes
+
+using -v passing the host-dir:container/dir with it
+
+It is important to remember that every time a container rans, we must specify the named volume path for it to be aware of the volume
