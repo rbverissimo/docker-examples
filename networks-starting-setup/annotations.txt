@@ -1,0 +1,8 @@
+docker container inspect <name-container> can inspect a container: i could inspect a mongo container to find its IP address and hard code it into the port in the code
+but that wouldn't scale so well.
+
+remember first build the image using: docker build -t <image-tag> . 
+then i can run it using docker run --name <name-container> -d --rm -p 3000:3000 <image-tag>, it means
+docker run a container based on <image-tag> wiht the name <name-container> on detach mode removing it after stopped binding the 3000 container port to the 3000 host port. 
+ 
+
