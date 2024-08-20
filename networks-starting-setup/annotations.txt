@@ -4,5 +4,12 @@ but that wouldn't scale so well.
 remember first build the image using: docker build -t <image-tag> . 
 then i can run it using docker run --name <name-container> -d --rm -p 3000:3000 <image-tag>, it means
 docker run a container based on <image-tag> wiht the name <name-container> on detach mode removing it after stopped binding the 3000 container port to the 3000 host port. 
- 
 
+HOW TO SETUP A NETWORK
+
+docker network --help 
+docker network create <network-name>
+
+docker run -d --name <container-name> --network <network-name> <image-name>
+
+docker run --name favorites --network favorites-net -d --rm -p 3000:3000 favorites-mongo
