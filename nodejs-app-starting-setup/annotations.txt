@@ -5,7 +5,7 @@ docker run -p localPort:containerPort <image-id>
 passing the publish flag into the run instruction gives access to the container from the localhost
 
 another thing:
-docker build .  yes, with a dot to tell docker engine where I want my image built, it will build a docker image which is read only
+docker build .  yes, with a dot to tell docker engine where I want my image built, it will build a docker image which is read-only
 
 docker stop <name> will just stop a container
 
