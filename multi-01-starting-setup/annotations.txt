@@ -1,3 +1,14 @@
+I TOOK A BEAT:
+
+front-end applications exposed by the container doesn't know anything about the network inside of the docker engine. Think about it. 
+If, we are running both back and frontends in the same machine, we need to expose the port to the backend in order that the browser can make a request to that order.
+In that case, the front-end application doesn't need to be in a network. 
+Think about it, a network is a cross-container communication between containers inside the docker engine. If I had multiple backends and databases, that would be the case, to connect 
+them all together through a network. But that's not the case with the application that exposes itself via a port and then the browser should make a request to a port of backend that is already
+expose.
+
+Mind that
+
 ######## THE DOCKERFILE ######
 
 WORKDIR:
