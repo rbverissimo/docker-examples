@@ -47,3 +47,37 @@ Configuration files: Store configuration files that need to be persistent across
 Shared data: Share data between multiple containers.
 
 ###### CREATING VOLUMES ######
+
+mongo stores that in :/data/db 
+
+it is possible to persist via named volume passing -v data:/data/db
+
+
+#### ENV and ARG #####
+
+We can use -e when running a container to pass environment variables to the containerized application 
+I'm going to pass MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD being the username and password to the database
+and also I'll add the ?authSource=admin to the string that connects to the mongo database. 
+Also is worth noting that I need to pass on both usersnames and variables in the query string, which would be user:secret@<container-name>:port/course-goals?authSource=admin
+
+this is the command example: 
+docker run --name mongodb -d --rm --network node-react-net -e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=secret -v data:/data/db mongo
+
+docker run --name node-api -d --rm --network node-react-net -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app -v logs:/app/logs -v /app/node_modules  -p 89:80 node-rest-api
+
+docker run --name react-app -d --rm -p 3000:3000 node-react-app
+
+
+
+##### BIND MOUNTS AND NODEMON #####
+
+API:
+
+named volume for the log files:
+-v logs:\app\logs
+
+unnamed volume for the node_modules:
+-v \app\node_modules
+
+bind mount the entire backend path:
+-v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app
