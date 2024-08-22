@@ -65,7 +65,7 @@ docker run --name mongodb -d --rm --network node-react-net -e MONGO_INITDB_ROOT_
 
 docker run --name node-api -d --rm --network node-react-net -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app -v logs:/app/logs -v /app/node_modules  -p 89:80 node-rest-api
 
-docker run --name react-app -d --rm -p 3000:3000 node-react-app
+docker run --name react-app -d --rm -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\frontend\src:/app/src -p 3000:3000 node-react-app
 
 
 
@@ -81,3 +81,6 @@ unnamed volume for the node_modules:
 
 bind mount the entire backend path:
 -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app
+
+bind mount the source folder frontend path: 
+-v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\frontend\src:/app/src 
