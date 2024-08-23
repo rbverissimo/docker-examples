@@ -1,0 +1,12 @@
+docker compose is a way to initialize multiple containers with out doing it one 
+by one. it is a standardized way to bring containers up and down. 
+
+By default, every container that goes up in the docker compose is removed after it stops.
+Also by default, docker compose creates a network with all the services declared in the docker-compose.yaml file. 
+
+COMMANDS
+docker compose up -d  -> runs everything in the docker-compose.ymal in detached mode.
+the default network and volumes are named using a convention by the docker engine itself. 
+
+docker compose down -v removes all the volumes when going down, but we doesn't need to do that.
+docker compose down by default removes and deletes all the containers
