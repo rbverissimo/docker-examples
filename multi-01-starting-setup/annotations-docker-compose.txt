@@ -10,3 +10,13 @@ the default network and volumes are named using a convention by the docker engin
 
 docker compose down -v removes all the volumes when going down, but we doesn't need to do that.
 docker compose down by default removes and deletes all the containers
+
+BUILD
+
+docker compose -build forces image building. by default, docker compose doesn't build an image if it finds it laying around the docker engine. 
+but this behavior can be changed using the -build flag. matter of fact, we can build without running the containers, whereas, without the up command. 
+
+CONTAINER NAMING:
+
+in the docker-compose.yaml, it is possible to set a user defined name by passing the key container-name: name. by default, docker names containers using the directory
+path reference with an auto increment identifier associated to it. such as: directory_folder_1. 

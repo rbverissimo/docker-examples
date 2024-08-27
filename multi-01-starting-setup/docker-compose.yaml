@@ -7,6 +7,7 @@ services:
     #environment:
       #- MONGO_INITDB_ROOT_USERNAME=user
       #- MONGO_INITDB_ROOT_PASSWORD=secret
+    #container_name: mongodb
     env_file:
       - ./env/mongodb.env
   backend:
@@ -27,7 +28,13 @@ services:
     depends_on:
       - mongodb
   frontend:
-
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
 volumes:
   data:
   logs:

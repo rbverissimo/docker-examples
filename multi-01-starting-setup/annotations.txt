@@ -61,9 +61,16 @@ and also I'll add the ?authSource=admin to the string that connects to the mongo
 Also is worth noting that I need to pass on both usersnames and variables in the query string, which would be user:secret@<container-name>:port/course-goals?authSource=admin
 
 this is the command example: 
-docker run --name mongodb -d --rm --network node-react-net -e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=secret -v data:/data/db mongo
+docker run --name mongodb 
+-d --rm 
+--network node-react-net 
+-e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=secret
+ -v data:/data/db mongo
 
-docker run --name node-api -d --rm --network node-react-net -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app -v logs:/app/logs -v /app/node_modules  -p 89:80 node-rest-api
+docker run --name node-api -d --rm
+ --network node-react-net 
+ -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\backend:/app -v logs:/app/logs -v /app/node_modules 
+  -p 89:80 node-rest-api
 
 docker run --name react-app -d --rm -v C:\Users\User\Desktop\sts-420\docker-course\multi-01-starting-setup\frontend\src:/app/src -p 3000:3000 node-react-app
 
