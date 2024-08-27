@@ -1,0 +1,9 @@
+by running the command below, I'm building up from a base node image to full blown node app binding mouting the container into the host filesystem. 
+docker run -it -v C:\Users\User\Desktop\sts-420\docker-course\utility-containers\node-uc:/app node-util npm init
+
+ENTRYPOINT 
+
+it works like a restriction to the container. it must take an argument of the specified entry point. in the example, the entry point is the npm. then, while docker running 
+the container I must pass on what I need to ben ran. 
+
+docker run -it -v C:\Users\User\Desktop\sts-420\docker-course\utility-containers\node-uc:/app node-util <command-here>
