@@ -7,3 +7,13 @@ it works like a restriction to the container. it must take an argument of the sp
 the container I must pass on what I need to ben ran. 
 
 docker run -it -v C:\Users\User\Desktop\sts-420\docker-course\utility-containers\node-uc:/app node-util <command-here>
+
+
+DOCKER COMPOSE
+
+so, I wrote a docker-compose.yaml. it is on this very folder. the point of that docker compose is to simplify my life as a developer. 
+so, instead of running a container full of commands, imma about doing: docker compose run --rm <commands>
+as it means that i can do something in the lines of docker compose run --rm npm init that it would create a node project for me. simple as that. 
+
+docker compose run is a bit different of docker compose up. that's why i'm passing the --rm flag, so that it removes the container after the execution. 
+otherwise it wouldn't do so. 
