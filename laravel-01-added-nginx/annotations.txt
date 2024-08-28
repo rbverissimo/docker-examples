@@ -1,0 +1,5 @@
+to spin a up new laravel project:
+
+docker compose run --rm composer composer create-project laravel/laravel .  
+
+the dot means that the composer will create the laravel project on the /var/www/html directory which is bind mounted to the ./src/ folder
