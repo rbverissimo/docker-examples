@@ -1,5 +1,13 @@
 to spin a up new laravel project:
 
-docker compose run --rm composer composer create-project laravel/laravel .  
+docker compose run --rm composer create-project --prefer-dist laravel/laravel .  
+
+docker compose run --rm composer create-project --prefer-dist laravel/laravel .
 
 the dot means that the composer will create the laravel project on the /var/www/html directory which is bind mounted to the ./src/ folder
+
+RUNNING CONTAINERS SPECIFIED:
+
+Passing on the container names of the docker-compose.yaml file
+
+docker compose up -d server php mysql
