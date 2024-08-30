@@ -15,6 +15,8 @@ services:
     build: 
       context: ./dockerfiles
       dockerfile: php.dockerfile
+    stdin_open: true
+    tty: true
     volumes:
       - ./src:/var/www/html:delegated
   mysql:
@@ -27,5 +29,16 @@ services:
       dockerfile: composer.dockerfile
     volumes:
       - ./src:/var/www/html
-  # artisan:
-  # npm:
+  artisan:
+    build: 
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html
+    entrypoint: ["php", "/var/www/html/artisan"]
+  npm:
+    image: node:latest
+    working_dir: /var/www/html
+    entrypoint: ["npm"]
+    volumes:
+      - ./src:/var/www/html
