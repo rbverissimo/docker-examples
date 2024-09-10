@@ -1,0 +1,3 @@
+EC2 is fine, but is the 'do-it-yourself' approach
+
+Elastic Container Service - ECS
