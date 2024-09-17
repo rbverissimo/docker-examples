@@ -1,0 +1,23 @@
+Core concepts & architecture
+
+There is a pod (holds multiple containers, at least one).
+Pods lives inside worker nodes which by themselves are wrapped in a cluster.
+This cluster also has a master node with the control plane to control the state of the workers.
+
+Each worker has, besides the pod, a proxy (an address resolver) that makes the access to the node possible.
+
+The cluster talks to the cloud provider API in order to get the orchestration running properly in the cloud environment. 
+
+WORKER NODE
+
+- talks to the master node through the kubelet
+- there is also a proxy to communicate with the outside world
+- there could be different pods with different containers and volumes and IP inside a worker node
+- pods are created and managed by the kubernetes infra
+
+MASTER NODE 
+
+- there is an API server that talks to the worker's kubelets
+- the scheduler takes care of newly created pod and assign them to worker nodes
+- kube-controller-manager is the entity that takes of the worker nodes state
+- cloud-controller-manager is the facade that talks to the cloud provider

@@ -1,0 +1,25 @@
+k8s is an open-source system for automating deployment
+
+problems of manual deployment:
+
+1. security and configuration
+2. containers might go down and need replacement
+3. the need for more (or even less) containers on traffic spikes
+4. load balancing between containers might be needed
+
+AWS ECS benefits
+
+1. health check
+2. auto scalling out of the box
+3. application load balancing
+
+but it locks the application to a specific cloud provider
+
+why kubernetes ?
+
+1. orchestrator of containers
+2. the de facto standard with extensible, yet standardized configuration
+3. it's a collection of concepts and tools for orchestration 
+4. it's not a paid service
+
+kubernetes is docker-compose for multiple machines
