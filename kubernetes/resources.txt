@@ -1,0 +1,43 @@
+installing involves setting up a local VM so that minikube can run a cluster locally.
+in windows, best use is the hyperv as the VM but it could be just a docker VM as well.
+
+OBJECTS:
+
+the "Pod":
+    smallest unit k8s interacts with
+* contains and runs one or multiple containers
+* pods contain shared resources (volumes)
+* has a cluster internal IP by default and communicate via localhost
+
+for pods to be managed for you, you need a "Controller" (e.g. a "Deployment")
+
+if a pod ever fails, once in a deployment controller, k8s auto restart it
+
+kubectl get pods -> show active pods
+
+the "Deployment":
+
+* you set a desired state, k8s makes it happen
+* you can control deployments as in pause, delete and rollback
+* deployments can auto-scale
+* is a controller of pods
+
+the "Service":
+
+* is a wrapper for pods that makes then accessible from the outside
+
+kubectl expose deployment first-app --type=LoadBalancer --port=8080
+
+the command above creates a service out of the deployment named first-app (it needs to exist in the cluster)
+assigning a load balancer with a fixed IP to it listenning on the specified port
+
+kubectl get services -> shows running services
+minikube service first-app -> exposes the sandbox IP:port map in which we could access the VM from the outside. first-app is the name of the service, btw
+
+---- SCALING in K8S ---- 
+
+kubectl scale deployment/first-app --replicas=3, first as being the name of the deployment
+
+the command above sets 3 replicas for the same deployment. And, with the service load balancer working, it is possible to route traffic between pods 
+when needed. for example, a pod could crash, k8s would set it up again and, in the meanwhile, traffic could be routed for the remaining online pods
+
