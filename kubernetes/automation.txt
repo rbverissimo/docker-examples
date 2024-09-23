@@ -1,3 +1,13 @@
 kubectl set image deployment/<name-deployment> <container-name>=<docker-hub-image-name>:<tag> 
 
-it really needs the tag to autodeploy
+k8s really needs the tag to autodeploy
+
+the k8s engine is optmistic when it comes to updates, if you set an unvalid update, you remove it from the history doing
+
+kubectl rollout undo deployment/<name-deployment> 
+
+and this command will simply rollback the last deployment. see the history:
+
+kubectl rollout history deployment/<name-deployment>
+
+its possible to also pass a -to--revision tag to rollback to previous versions of the application
