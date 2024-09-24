@@ -1,0 +1,38 @@
+command to apply changes to the cluster:
+
+kubectl apply -f=<file-name>.yaml 
+
+the command above will look for a file of the name passed to it in the current directory. it is possible to specify multiple files or full paths in this command. 
+for updating the behavior of the k8s cluster management for any given k8s object, we just need to apply the file. 
+k8s will automatically reads its changes. 
+
+the declarative approach takes advantage of declaring in a .yaml file the configurations on which k8s will work on a cluster
+
+there's the apiVersion, we should also choose a kind of management such as Deployment, there are many other params as well.
+
+there is one param though, that is very crucial: the selector. 
+selectors are data structures da k8s use for mapping pods that needs to be watched for.
+this behavior makes it mandatory to define a key-value pair of selectors of the containers that will be managed as pods by the k8s engine.
+
+such as in, for:
+
+template:
+  metadata:
+    labels:
+      app: second-app
+  spec:
+    containers:
+      - name: second-node
+
+each of the labels in the cluster, i must
+
+selector:
+  matchLabels:
+    app: second-app
+
+match them by name. 
+
+
+to delete resources:
+
+kubectl delete -f=<file-name>.yaml
