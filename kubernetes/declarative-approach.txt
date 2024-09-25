@@ -36,3 +36,17 @@ match them by name.
 to delete resources:
 
 kubectl delete -f=<file-name>.yaml
+
+
+-- matchExpressions for labels and selectors:
+it is possible to match labels using an expression such as:
+{key: <key>, operator: <In> <NotIn> check docs, values: [<value1>, <value2>]}
+this means that a provided key will be matched, using an operation defined by the operator, against the values passed in the array 
+
+LivenessProbe:
+
+livenessProbe is a setting that restarts containers if it detects downtime on any given container.
+the configuration needs an endpoint so that the k8s engine make a http get request to it and a period in seconds on which the engine
+will trigger the request to see if the container is still up. if it detects downtime, the engine spins up another container back to life.
+
+

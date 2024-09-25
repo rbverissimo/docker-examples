@@ -29,3 +29,10 @@ spec:
     spec:
       containers:
         - name: second-node
+          image: academind/kub-first-app:2 #this could any repository/name:tag of image
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          periodSeconds: 10
+          initialDelaySeconds: 5
