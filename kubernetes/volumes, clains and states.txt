@@ -1,0 +1,12 @@
+emptyDir: assign a mount inside the container on which the volume will be mounted with a clean slate. the clean slate part is very important. 
+this type of volume works but has with downsides: it is closely related to the pod on which the volume is mounted on. 
+
+hostPath: a bit like bind mounts in simple containers, it mounts a path of on the host worker node. what problem does it solves?
+since the volume is mounted on the host, many different pods of the worker node may access it. so, regarding emptyDir, the mounting isn't
+closely attached to a specific pod, rather in a specific node.
+
+CSI (Container Storage Interface): 
+
+Persistent Volumes: are side car storages in the cluster, a remote access storage system that doesn't participate pods and nodes' lifecycles
+
+PV Claims: a n-n relationship between nodes and persistent volumes. 

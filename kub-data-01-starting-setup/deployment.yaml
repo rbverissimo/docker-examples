@@ -14,5 +14,14 @@ spec:
     spec:
       containers:
         - name: story-deployment
-          image: rbverissimo/story-kub-data #pushed to dockerhub image
+          image: rbverissimo/story-kub-data # pushed to dockerhub image
+          volumeMounts:
+            - mountPath: /app/story # workdir + path inside the container
+              name: story-volume
       volumes:
+        - name: story-volume
+          #emptyDir: {}
+          hostPath: #a bit like a bind mount on containers
+            path: /data
+            type: DirectoryOrCreate
+
