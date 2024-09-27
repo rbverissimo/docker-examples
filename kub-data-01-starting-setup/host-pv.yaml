@@ -6,6 +6,7 @@ spec:
   capacity:
     storage: 1Gi
   volumeMode: Filesystem #could be Block
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   hostPath:

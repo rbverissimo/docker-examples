@@ -21,7 +21,9 @@ spec:
       volumes:
         - name: story-volume
           #emptyDir: {}
-          hostPath: #a bit like a bind mount on containers
-            path: /data
-            type: DirectoryOrCreate
+          #hostPath: #a bit like a bind mount on containers
+          #  path: /data
+          #  type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: host-pvc
 
