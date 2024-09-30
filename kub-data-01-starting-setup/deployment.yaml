@@ -15,6 +15,9 @@ spec:
       containers:
         - name: story-deployment
           image: rbverissimo/story-kub-data # pushed to dockerhub image
+          env: 
+            - name: STORY_FOLDER
+              value: 'story'
           volumeMounts:
             - mountPath: /app/story # workdir + path inside the container
               name: story-volume
