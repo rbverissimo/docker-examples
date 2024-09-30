@@ -16,8 +16,13 @@ spec:
         - name: story-deployment
           image: rbverissimo/story-kub-data # pushed to dockerhub image
           env: 
+            #- name: STORY_FOLDER  configuration for using env into the deployment
+            #  value: 'story'
             - name: STORY_FOLDER
-              value: 'story'
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder 
           volumeMounts:
             - mountPath: /app/story # workdir + path inside the container
               name: story-volume
