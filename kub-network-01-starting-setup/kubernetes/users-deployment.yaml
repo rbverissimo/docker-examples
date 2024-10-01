@@ -14,5 +14,7 @@ spec:
     spec:
       containers:
         - name: users
-          image: academind/kub-demo-users #any image stored in dockerhub/name:tag
+          image: academind/kub-demo-users:latest #any image stored in dockerhub/name:tag
+        - name: auth
+          image: academind/kub-demo-auth:latest 
           
