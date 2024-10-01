@@ -5,6 +5,7 @@ services:
   users:
     build: ./users-api
     environment:
+      AUTH_SERVICE_SERVICE_HOST: auth
       AUTH_ADDRESS: auth
     ports: 
       - "8080:8080"
