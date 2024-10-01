@@ -1,0 +1,1 @@
+the special address 'localhost' can be used ONLY and ONLY IF containers are inside the same pod and needs to communicate between themselves

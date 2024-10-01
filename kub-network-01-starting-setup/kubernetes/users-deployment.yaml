@@ -15,6 +15,9 @@ spec:
       containers:
         - name: users
           image: academind/kub-demo-users:latest #any image stored in dockerhub/name:tag
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost
         - name: auth
           image: academind/kub-demo-auth:latest 
           
