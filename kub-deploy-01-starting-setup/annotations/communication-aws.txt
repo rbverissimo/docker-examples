@@ -1,0 +1,5 @@
+1. download aws cli 
+2. generate a key to connection to aws
+3. configure connection to aws eks so that the local machine can control kubernetes that will control eks
+
+4. set up node groups along with security policies. once done, local kubernetes and talk do aws to create pods on the worker nodes
